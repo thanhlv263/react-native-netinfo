@@ -41,8 +41,7 @@ public class NetInfoUtils {
     public static void compatRegisterReceiver(
             Context context, BroadcastReceiver receiver, IntentFilter filter, boolean exported) {
         if (Build.VERSION.SDK_INT >= 34 && context.getApplicationInfo().targetSdkVersion >= 34) {
-            context.registerReceiver(
-                    receiver, filter, exported ? Context.RECEIVER_EXPORTED : Context.RECEIVER_NOT_EXPORTED);
+            context.registerReceiver(receiver, filter);
         } else {
             context.registerReceiver(receiver, filter);
         }
